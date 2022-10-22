@@ -1,10 +1,12 @@
 /*
+  Credit
   HC-SR04 https://create.arduino.cc/projecthub/abdularbi17/ultrasonic-sensor-hc-sr04-with-arduino-tutorial-327ff6
 */
 
-#define echoPin PB10 // attach pin B10 to pin Echo of HC-SR04
-#define trigPin PB11 //attach pin B11 to pin Trig of HC-SR04
+#define echoPin PB10 // ต่อกับ Echo ของ HC-SR04
+#define trigPin PB11 // ต่อกับ Trig ของ HC-SR04
 
+#define LDR PA5  // ต่อกับ A0 ของ LDR Sensor
 
 void setup() {
   Serial.begin(115200);
@@ -13,12 +15,19 @@ void setup() {
 }
 
 void loop() {
-  int distance = distanceRead();
-  Serial.println(distance);
+  // อ่านค่าระยะห่างจาก HC-SR04
+  int distance = distanceRead();  
+  Serial.print("distance: "); Serial.print(distance); Serial.println(" cm");
+
+  // อ่านค่าแสงจาก LDR Sensor
+  int light = analogRead(LDR);
+  Serial.print("light: "); Serial.println(light);
+
   delay(1000);
 }
 
 int distanceRead() {
+
   long duration; // variable for the duration of sound wave travel
   int distance; // variable for the distance measurement
 
@@ -32,10 +41,6 @@ int distanceRead() {
   duration = pulseIn(echoPin, HIGH);
   // Calculating the distance
   distance = duration * 0.034 / 2; // Speed of sound wave divided by 2 (go and back)
-  // Displays the distance on the Serial Monitor
-  Serial.print("Distance: ");
-  Serial.print(distance);
-  Serial.println(" cm");
 
   return distance;
 }
