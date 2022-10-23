@@ -7,7 +7,8 @@
 #define trigPin PB11    // ต่อกับ Trig ของ HC-SR04
 
 #define LDR PA5         // ต่อกับ A0 ของ LDR Sensor
-#define RELAY PC13      // กำหนดขาต่อกับ Relay
+#define LED1 PC13      // กำหนดขาต่อกับ LED1
+#define LED2 PC14      // กำหนดขาต่อกับ LED2
 
 void setup() {
   Serial.begin(115200);
@@ -15,8 +16,10 @@ void setup() {
   pinMode(trigPin, OUTPUT); // Sets the trigPin as an OUTPUT
   pinMode(echoPin, INPUT); // Sets the echoPin as an INPUT
 
-  digitalWrite(RELAY, LOW);
-  pinMode(RELAY, OUTPUT);
+  digitalWrite(LED1, LOW);
+  pinMode(LED1, OUTPUT);
+  digitalWrite(LED2, LOW);
+  pinMode(LED2, OUTPUT);
 }
 
 void loop() {
@@ -28,11 +31,18 @@ void loop() {
   int light = analogRead(LDR);   // อ่านค่าอนาลอก มีค่า 0-4095
   Serial.print("light: "); Serial.println(light);
 
-  // เงือนไขการทำงานหลอดไฟ
-  if (distance < 100 && light < 2000) {         // ระยะนอ้ยกว่า 100cm และแสงน้อยกว่า 2000 ให้รีเลย์ทำงาน
-    digitalWrite(RELAY, HIGH);
-  } else {                                      // รีเลย์หยุดทำงาน
-    digitalWrite(RELAY, LOW); 
+  // เงือนไขการทำงานหลอดไฟ1
+  if (distance < 100) {         // ระยะนอ้ยกว่า 100cm ให้ LED1 ทำงาน
+    digitalWrite(LED1, HIGH);
+  } else {                                      // led ดับ
+    digitalWrite(LED1, LOW);
+  }
+
+  // เงือนไขการทำงานหลอดไฟ2
+  if (light > 3000) {         // ค่าจากแสงแสงมากกว่า 3000 ให้ LED2 ทำงาน
+    digitalWrite(LED2, HIGH);
+  } else {                                      // led ดับ
+    digitalWrite(LED2, LOW);
   }
 
   delay(1000);
