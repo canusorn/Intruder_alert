@@ -12,7 +12,8 @@
 
 void setup() {
   Serial.begin(115200);
-
+  Serial2.begin(9600); // Serial2 on rx,tx = PA3,PA2
+  
   pinMode(trigPin, OUTPUT); // Sets the trigPin as an OUTPUT
   pinMode(echoPin, INPUT); // Sets the echoPin as an INPUT
 
@@ -45,6 +46,13 @@ void loop() {
     digitalWrite(LED2, LOW);
   }
 
+  // ส่งค่าไปยัง ESP
+  Serial2.print("distance:"); Serial2.print(distance);
+  Serial2.print("  light:"); Serial2.print(light);
+  Serial2.print("  led_one:"); Serial2.print(digitalRead(LED1));
+  Serial2.print("  led_two:"); Serial2.print(digitalRead(LED2));
+  Serial2.print("\n");
+  
   delay(1000);
 }
 
