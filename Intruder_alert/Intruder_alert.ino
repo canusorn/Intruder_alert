@@ -1,12 +1,24 @@
 /*
   Credit
   HC-SR04 https://create.arduino.cc/projecthub/abdularbi17/ultrasonic-sensor-hc-sr04-with-arduino-tutorial-327ff6
+
+  INPUT เซนเซอร์ระยะทาง HC-SR04 เซนเซอร์ดิจิตอล
+  echoPin PB10    // ต่อกับ Echo ของ HC-SR04
+  trigPin PB11    // ต่อกับ Trig ของ HC-SR04
+
+  INPUT เซนเซอร์แสง LDR อนาลอก
+  LDR PA5         // ต่อกับ A0 ของ LDR Sensor
+
+  OUTPUT ไฟ LED
+   LED1 PC13      // กำหนดขาต่อกับ LED1
+   LED2 PC14      // กำหนดขาต่อกับ LED2
 */
 
 #define echoPin PB10    // ต่อกับ Echo ของ HC-SR04
 #define trigPin PB11    // ต่อกับ Trig ของ HC-SR04
 
 #define LDR PA5         // ต่อกับ A0 ของ LDR Sensor
+
 #define LED1 PC13      // กำหนดขาต่อกับ LED1
 #define LED2 PC14      // กำหนดขาต่อกับ LED2
 

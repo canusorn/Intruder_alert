@@ -39,6 +39,24 @@ ESP8266WebServer server(80);
 // ส่งค่า HTML หน้าเว็บกลับไปยัง Web Browser
 void handleRoot()
 {
+  /*
+อธิบาย HTML
+
+รีเฟรชหน้าเอง (จากตัวอย่าง AdvancedWebServer)
+meta http-equiv='refresh' content='10'            =>    ให้หน้าเว็บรีเฟรชเองทุก 10 วินาทีเพื่ออัพเดทค่า
+
+css ปรับแต่งหน้าเว็บ (จากตัวอย่าง AdvancedWebServer)
+background-color: #cccccc;                        =>    สีพื้นหลัง
+font-family: Arial, Helvetica, Sans-Serif;        =>    ฟอร์น
+Color: #000088; text-align: center;               =>    สีตัวอักษร
+
+รูปภาพ svg
+ที่มารูป https://fontawesome.com/icons/lightbulb?s=solid&f=classic
+ปรับแต่งสี http://www.svgbasics.com/colour.html
+ปรับขนาดรูป https://css-tricks.com/scale-svg/
+*/
+
+
   String payload; // สร้างตัวแปรสตริงเก็บโค้ด html
 
   // กำหนดค่า html และรวมกับค่าจากเซนเซอร์ โดยให้รีเฟรชอัตโนมัติทุก 10 วินาที  กำหนดเวลาที meta http-equiv='refresh' content='10'
@@ -49,7 +67,6 @@ void handleRoot()
     <title>ESP8266 Intruder alert control</title>\
     <style>\
       body { background-color: #cccccc; font-family: Arial, Helvetica, Sans-Serif; Color: #000088; text-align: center; }\
-      .button { background-color: #195B6A; border: none; color: white; padding: 16px 40px;}\
     </style>\
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css'/>\
     <script src='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js'></script>\
