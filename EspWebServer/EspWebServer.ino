@@ -50,10 +50,6 @@ background-color: #cccccc;                        =>    สีพื้นหล
 font-family: Arial, Helvetica, Sans-Serif;        =>    ฟอร์น
 Color: #000088; text-align: center;               =>    สีตัวอักษร
 
-รูปภาพ svg
-ที่มารูป https://fontawesome.com/icons/lightbulb?s=solid&f=classic
-ปรับแต่งสี http://www.svgbasics.com/colour.html
-ปรับขนาดรูป https://css-tricks.com/scale-svg/
 */
 
 
@@ -68,8 +64,6 @@ Color: #000088; text-align: center;               =>    สีตัวอัก
     <style>\
       body { background-color: #cccccc; font-family: Arial, Helvetica, Sans-Serif; Color: #000088; text-align: center; }\
     </style>\
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css'/>\
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js'></script>\
   </head>\
   <body>\
     <h1>Intruder alert</h1>\
